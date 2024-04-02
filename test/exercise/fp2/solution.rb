@@ -14,14 +14,7 @@ module Exercise
 
       # Написать свою функцию my_map
       def my_map(&block)
-        my_result = MyArray.new
-        i = 0
-
-        while i < size
-          my_result << block.call(self[i])
-          i += 1
-        end
-        my_result
+        my_reduce(MyArray.new) { |acc, first| acc << block.call(first) }
       end
 
       # Написать свою функцию my_compact
