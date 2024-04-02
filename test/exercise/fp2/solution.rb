@@ -37,11 +37,12 @@ module Exercise
       end
 
       # Написать свою функцию my_reduce
-      def my_reduce(acc = self[0], item = 1, &block)
-        return acc if item >= size
+      def my_reduce(acc = nil, &block)
+        acc = acc.nil? ? first : block.call(acc, first)
+        rest = self - self[0..0]
+        return acc if rest.empty?
 
-        acc = block.call acc, self[item]
-        my_reduce(acc, item + 1, &block) if item < size
+        MyArray.new(rest).my_reduce(acc, &block)
       end
     end
   end
