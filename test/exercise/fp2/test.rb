@@ -30,7 +30,7 @@ class Exercise::Fp2Test < Minitest::Test
   end
 
   def test_my_compact
-    skip
+    # skip
     func = ->(element) { element if element.even? }
     func_another = ->(element) { element * @int }
     func_yet_another = ->(element) { element.even? }
