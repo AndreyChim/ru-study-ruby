@@ -5,11 +5,12 @@ module Exercise
       # Использовать свои написанные функции для реализации следующих - можно.
 
       # Написать свою функцию my_each
-      def my_each(item = 0, &block)
-        return self if item >= size
+      def my_each(&block)
+        return self if size.zero?
 
-        block.call self[item]
-        my_each(item + 1, &block) if item < size
+        block.call self[0]
+        MyArray.new(self[1...size]).my_each(&block)
+        self
       end
 
       # Написать свою функцию my_map
