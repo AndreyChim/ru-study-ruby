@@ -15,7 +15,7 @@ module Exercise
 
       # Написать свою функцию my_map
       def my_map(&block)
-        my_reduce(MyArray.new) { |acc, first| acc << block.call(first) }
+        my_reduce(MyArray.new) { |acc, element| acc << block.call(element) }
       end
 
       # Написать свою функцию my_compact
